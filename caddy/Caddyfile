@@ -1,6 +1,6 @@
 {
     email randomemail@email.com 
-    # acme_ca https://acme-staging-v02.api.letsencrypt.org/directory
+    acme_ca https://acme-staging-v02.api.letsencrypt.org/directory
 }
 
 https://donkey.feature-tour.com {
