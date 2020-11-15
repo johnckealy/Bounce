@@ -19,7 +19,6 @@
 		<br>
 		<button class="button is-primary is-centered is-fullwidth" type="submit"><strong>Join Early Access</strong></button>
 	</form>
-	<h2>You send this: {{ saved_email }}</h2>
 	<FlashMessage :position="'left bottom'"></FlashMessage>
 
 </div>
