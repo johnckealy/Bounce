@@ -1,0 +1,66 @@
+version: "3"
+
+networks:
+    bouncey:
+        external: true
+
+volumes:
+    postgres_data:
+    
+
+services:
+    # CaddyServer reverse proxy
+    caddy:
+        image: caddy:2-alpine
+        restart: unless-stopped
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - /var/www/bounce/caddy/Caddyfile:/etc/caddy/Caddyfile
+        networks:
+            - bouncey
+
+    # Django web app
+    django:
+        build:
+            context: /var/www/bounce/bounce
+            dockerfile: /var/www/bounce/bounce/Dockerfile.prod
+        expose:
+            - 8000
+        environment:
+            - url=https://donkey.feature-tour.com
+        command: 
+            "gunicorn bounce.wsgi:application --bind 0.0.0.0:8000"
+        volumes:
+            - /var/www/bounce/api:/var/lib/api/
+        env_file:
+            - /var/www/bounce/config/.env.django.prod
+        depends_on:
+            - djangodb
+        networks:
+            - bouncey
+
+    # Django database
+    djangodb:
+        image: postgres:12.0-alpine
+        volumes:
+            - postgres_data:/var/lib/postgresql/data/
+        env_file:
+            - /var/www/bounce/config/.env.django.prod.db
+        networks:
+            - bouncey
+
+    # Nuxt frontend app
+    frontend:
+        build: /var/www/bounce/client/
+        ports:
+            - "3000:3000"
+        environment:
+            - url=https://horsey.feature-tour.com
+        volumes:
+            - /var/www/bounce/client:/var/lib/client
+        command:
+            "npm run start"
+        networks:
+            - bouncey
