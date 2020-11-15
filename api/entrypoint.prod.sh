@@ -11,6 +11,6 @@ then
     echo "PostgreSQL started"
 fi
 
-# echo yes | python manage.py collectstatic
+python manage.py migrate
 
 exec "$@"
