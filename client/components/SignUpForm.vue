@@ -39,8 +39,8 @@ export default {
   },
   methods: {
 	async processForm() {
-		// const response = await this.$axios.$post('https://donkey.feature-tour.com/emailsignup/create', {"email": this.email})
-		const response = await this.$axios.$post('http://localhost:8000/emailsignup/create', {"email": this.email})
+		const response = await this.$axios.$post('https://donkey.feature-tour.com/emailsignup/create', {"email": this.email})
+		// const response = await this.$axios.$post('http://localhost:8000/emailsignup/create', {"email": this.email})
 		this.saved_email = response.email
 		this.flashMessage.show({
 			status: 'success',
