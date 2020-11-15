@@ -24,8 +24,8 @@ services:
     # Django web app
     django:
         build:
-            context: /var/www/bounce/bounce
-            dockerfile: /var/www/bounce/bounce/Dockerfile.prod
+            context: /var/www/bounce/api
+            dockerfile: /var/www/bounce/api/Dockerfile.prod
         expose:
             - 8000
         environment:
