@@ -53,7 +53,9 @@ services:
 
     # Nuxt frontend app
     frontend:
-        build: /var/www/bounce/client/
+        build:
+            context: /var/www/bounce/client/
+            dockerfile: /var/www/bounce/client/Dockerfile
         ports:
             - "3000:3000"
         environment:
