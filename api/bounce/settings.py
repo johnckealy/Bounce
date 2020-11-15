@@ -136,7 +136,6 @@ REST_FRAMEWORK = {
 }
 
 CORS_ALLOWED_ORIGINS = [
-    "https://feature-tour.com",
+    "https://horsey.feature-tour.com",
     "http://localhost:3000",
-    "http://localhost:8000",
 ]
