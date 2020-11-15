@@ -18,6 +18,9 @@ export default {
   ],
 
   plugins: [
+    { 
+      src: '~/plugins/flash-message.js', mode: 'client' 
+    }
   ],
 
   components: true,
@@ -35,6 +38,7 @@ export default {
   },
   modules: [
     '@nuxtjs/bulma',
+    '@nuxtjs/axios',
   ],
 
   build: {
