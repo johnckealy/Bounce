@@ -7,7 +7,7 @@ WORKDIR ${APP_ROOT}
 ADD . ${APP_ROOT}
 
 RUN npm install
-RUN npm generate
+RUN npm run generate
 RUN npm run build
 
 ENV HOST 0.0.0.0
