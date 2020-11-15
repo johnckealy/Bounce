@@ -3,10 +3,10 @@
     # acme_ca https://acme-staging-v02.api.letsencrypt.org/directory
 }
 
-https://donkey.feature-tour.com {
+https://api.feature-tour.com {
     reverse_proxy django:8000
 }
 
-https://horsey.feature-tour.com {
+https://bounce.feature-tour.com {
     reverse_proxy frontend:3000
 }

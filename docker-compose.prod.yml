@@ -29,7 +29,7 @@ services:
         expose:
             - 8000
         environment:
-            - url=https://donkey.feature-tour.com
+            - url=https://api.feature-tour.com
         command: 
             "gunicorn bounce.wsgi:application --bind 0.0.0.0:8000"
         volumes:
@@ -59,7 +59,7 @@ services:
         ports:
             - "3000:3000"
         environment:
-            - url=https://horsey.feature-tour.com
+            - url=https://bounce.feature-tour.com
         volumes:
             - /var/www/bounce/client:/var/lib/client
         command:
