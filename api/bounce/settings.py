@@ -138,4 +138,5 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     "https://bounce.feature-tour.com",
     "http://localhost:3000",
+    "http://172.26.0.3:3000"
 ]
